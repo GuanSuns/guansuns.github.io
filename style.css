@@ -149,6 +149,32 @@ button.button1:hover{
     cursor: pointer;
 }
 
+a.button-website {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    border: none;
+    background-color: #8064A2;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    /*font-family:'Poppins',sans-serif;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /*font-family: 'Lora', serif;*/
+    /*border-padding:10px;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:1px;
+    padding-bottom:1px;
+    border-radius: 8%/16%;
+    margin:0.3e, 0.3em 0.3em 0.3em;
+}
+
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
     .header a {
