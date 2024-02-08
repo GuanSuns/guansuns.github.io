@@ -145,10 +145,11 @@
 
 
   <section class="section">
-    <div class="container is-max-desktop">
+    <div class="container is-max-desktop" style="margin-top: -50px">
       <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
+      
+      <div class="columns is-centered has-text-centered" style="margin-top: -50px">
+        <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
@@ -172,13 +173,10 @@
             </p>
           </div>
         </div>
-        <div class="column">
-          <img src="media/figures/positioning.png" class="interpolation-image" />
-        </div>
       </div>
-      <!--/ Abstract. -->
-
     </div>
+    <!--/ Abstract. -->
+
 
     <!-- Paper video. -->
     <br>
@@ -191,9 +189,14 @@
           <h2 class="title is-3">Examples of Success Cases and Failure Cases </h2>
 
           <p class="content has-text-justified">
-            As the core contribution of this paper, we construct a benchmark which consists of diverse video clips demonstrating 
+            As the core contribution of this paper, we construct a benchmark which consists of diverse video clips
+            demonstrating
             suboptimal yet goal-reaching policies in various household tasks.
           </p>
+
+          <h3 class="title is-3" style="font-size:x-large">
+            Success Cases
+          </h3>
 
           <div class="tile is-ancestor">
             <div class="tile is-vertical is-12">
@@ -307,57 +310,47 @@
             </div>
           </div>
 
+          <br></br>
+          <h3 class="title is-3" style="font-size:x-large">
+            Failure Cases
+          </h3>
+
           <div class="tile is-ancestor">
-            <div class="tile is-vertical is-12">
-              <div class="tile">
-                <div class="tile is-vertical is-1">
-                </div>
-                <div class="tile is-vertical is-4">
-                  <div class="tile is-parent">
-                    <article class="tile is-child box is-info">
-                      <p class="subtitle"><b>Place bowl on burner</b></p>
-                      <figure class="image is-4by3">
-                        <img src="media/videos/bad_1.gif" alt="hello">
-                      </figure>
-                    </article>
-                  </div>
-                  <div class="tile is-parent">
-                    <article class="tile is-child box is-info">
-                      <p class="subtitle"><b>Move spoon to bowl</b></p>
-                      <figure class="image is-4by3">
-                        <img src="media/videos/bad_2.gif" alt="hello">
-                      </figure>
-                    </article>
-                  </div>
-                  <div class="tile is-parent">
-                    <article class="tile is-child box is-info">
-                      <p class="subtitle"><b>Take scissors out of container</b></p>
-                      <figure class="image is-4by3">
-                        <img src="media/videos/bad_3.gif" alt="hello">
-                      </figure>
-                    </article>
-                  </div>
-                </div>
-                <div class="tile is-vertical is-6">
-                  <div class="tile is-parent">
-                    <article class="tile is-child is-info centered-image">
-                      <img src="media/figures/bad_1.png" alt="hello" class="resized-image1">
-                    </article>
-                  </div>
-                  <div class="tile is-parent">
-                    <article class="tile is-child is-info centered-image">
-                      <img src="media/figures/bad_2.png" alt="hello" class="resized-image1">
-                    </article>
-                  </div>
-                  <div class="tile is-parent">
-                    <article class="tile is-child is-info centered-image">
-                      <img src="media/figures/bad_3.png" alt="hello" class="resized-image1">
-                    </article>
-                  </div>
-                </div>
+            <div class="tile is-vertical is-10">
+              <div class="tile is-parent box">
+                <article class="tile is-child box is-info is-4">
+                  <p class="subtitle"><b>Open cabinet door</b></p>
+                  <figure class="image is-4by3">
+                    <img src="media/videos/bad_1.gif" alt="hello">
+                  </figure>
+                </article>
+                <article class="tile is-child is-info centered-image">
+                  <img src="media/figures/bad_1.png" alt="hello" class="resized-image" style="width: 80%">
+                </article>
               </div>
-              <div class="tile is-vertical is-1">
+              <div class="tile is-parent box">
+                <article class="tile is-child box is-info is-4">
+                  <p class="subtitle"><b>Move spoon to bowl</b></p>
+                  <figure class="image is-4by3">
+                    <img src="media/videos/bad_2.gif" alt="hello">
+                  </figure>
+                </article>
+                <article class="tile is-child is-info centered-image">
+                  <img src="media/figures/bad_2.png" alt="hello" class="resized-image" style="width: 80%">
+                </article>
               </div>
+              <div class="tile is-parent box">
+                <article class="tile is-child box is-info is-4">
+                  <p class="subtitle"><b>Take scissors out of container</b></p>
+                  <figure class="image is-4by3">
+                    <img src="media/videos/bad_3.gif" alt="hello">
+                  </figure>
+                </article>
+                <article class="tile is-child is-info centered-image">
+                  <img src="media/figures/bad_3.png" alt="hello" class="resized-image" style="width: 80%">
+                </article>
+              </div>
+
             </div>
           </div>
 
@@ -372,21 +365,32 @@
           <h2 class="title is-3">Understanding Output Patterns of GPT-4V Critic </h2>
 
           <p class="content has-text-justified">
-            We introduce a set of metrics and a taxonomy for characterizing the strengths and failure modes of VLM critics. 
+            We introduce a set of metrics and a taxonomy for characterizing the strengths and failure modes of VLM
+            critics.
             Detailed explanation can be found in the paper. Here are some key observations:
-            <li>Our evaluation indicates that GPT-4V can identify a significant portion of undesirable robot behaviors (with a recall rate of 69%).</li>
-            <li>However, it also generates critiques that contain a considerable amount of hallucinated information (resulting in a precision rate of 62%), mainly due to limited visual-grounding capability.</li>
-            <li>We demonstrate that, in an ideal case, by providing GPT-4V with "perfect" grounding feedback that verifies the occurrences of events mentioned in the critiques, it can "refine" its outputs and achieve a precision rate of over 98% (with a minor impact on the recall).</li>
-            <li>We also assess the feasibility of complementing verbal critiques with preference labels (see Sec. 4.1). Our results show that (a) when contrasting a negative sample with a positive sample, in 95.61% of time, GPT-4V manages to prefer the positive one; (b) when comparing pairs of negative samples or pairs of positive samples, GPT-4V always establishes invalid rankings within the pairs by "hallucinating" that one sample is perfect and one is flawed, as seen in its justifications. The positive aspect is that GPT-4V can accurately select near-optimal behaviors over suboptimal ones even though it tends to establish unnecessary orderings in other cases..</li>
+            <li>Our evaluation indicates that GPT-4V can identify a significant portion of undesirable robot behaviors
+              (with a recall rate of 69%).</li>
+            <li>However, it also generates critiques that contain a considerable amount of hallucinated information
+              (resulting in a precision rate of 62%), mainly due to limited visual-grounding capability.</li>
+            <li>We demonstrate that, in an ideal case, by providing GPT-4V with "perfect" grounding feedback that
+              verifies the occurrences of events mentioned in the critiques, it can "refine" its outputs and achieve a
+              precision rate of over 98% (with a minor impact on the recall).</li>
+            <li>We also assess the feasibility of complementing verbal critiques with preference labels (see Sec. 4.1).
+              Our results show that (a) when contrasting a negative sample with a positive sample, in 95.61% of time,
+              GPT-4V manages to prefer the positive one; (b) when comparing pairs of negative samples or pairs of
+              positive samples, GPT-4V always establishes invalid rankings within the pairs by "hallucinating" that one
+              sample is perfect and one is flawed, as seen in its justifications. The positive aspect is that GPT-4V can
+              accurately select near-optimal behaviors over suboptimal ones even though it tends to establish
+              unnecessary orderings in other cases..</li>
           </p>
           <br><br>
           <div class="columns">
             <div class="column has-text-centered">
-              <img src="media/figures/result_1.png" alt="recall-precision-acc">
+              <img src="media/figures/result_1.png" alt="recall-precision-acc" style="margin-top: 58px">
             </div>
 
             <div class="column has-text-centered">
-              <img src="media/figures/error-types.png" alt="error-types">
+              <img src="media/figures/error-types.png" alt="error-types" style="margin-bottom: 58px">
             </div>
           </div>
         </div>
@@ -399,13 +403,21 @@
           <h2 class="title is-3">Integrating Critiques into a Closed-loop System</h2>
 
           <p class="content has-text-justified">
-            While this work does not take a strong stance on how the critiques should be integrated into closed-loop policy-generation systems, we 
-            do present a candidate framework using a real robot in five household scenarios, wherein a Code-as-Policies (CaP) agent iteratively refines the 
-            policy according to VLM critiques on the rollouts. We consider 5 tasks within table-top setups: (a) scissor handover; 
-            (b) lifting an opened bag; (c) bread grasping; (d) knife placing; and (e) spoon picking. The CaP agent manages to eliminate undesirable behaviors
+            While this work does not take a strong stance on how the critiques should be integrated into closed-loop
+            policy-generation systems, we
+            do present a candidate framework using a real robot in five household scenarios, wherein a Code-as-Policies
+            (CaP) agent iteratively refines the
+            policy according to VLM critiques on the rollouts. We consider 5 tasks within table-top setups: (a) scissor
+            handover;
+            (b) lifting an opened bag; (c) bread grasping; (d) knife placing; and (e) spoon picking. The CaP agent
+            manages to eliminate undesirable behaviors
             according to VLM critiques in 4 of the tasks.
           </p>
-          <br>
+          
+          <div class="centered-image">
+            <img src="media/figures/positioning.png" class="interpolation-image"
+              style="max-width: 50%; height: auto; margin-bottom: 20px; margin-top: 0px" />
+          </div>
           <div style="text-align: center;">
             <img src="media/figures/robot.png" class="interpolation-image" style="width: 80%; height: auto;" />
           </div>
@@ -447,7 +459,6 @@
     <script async src="//static.getclicky.com/101386582.js"></script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101386582ns.gif" /></p></noscript>
     <script src="https://www.w3counter.com/tracker.js?id=147571"></script>
-
 
 
 </body>
