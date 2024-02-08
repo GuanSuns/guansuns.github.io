@@ -1,98 +1,455 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>VLM Behavior Critics</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="assets/css/Header-Dark.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLM Behavior Critics</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
+<style>
+  .centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .resized-image {
+    margin-left: 10px;
+    margin-top: 10px;
+    max-width: 96%;
+    height: auto;
+  }
+
+  .resized-image1 {
+    margin-left: 10px;
+    margin-top: 50px;
+    max-width: 96%;
+    height: auto;
+  }
+</style>
 
 <body>
-    <div style="background: url(&quot;assets/img/mountain_bg.jpg&quot;);">
-        <div class="container hero">
-            <div class="row">
-                <div class="col" style="height: 44.5px;">
-                    <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;padding-top: 15px;font-size: 15px;">Yochan Lab 2024</p>
-                </div>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-fullhd">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">"Task Success" is Not Enough: Investigating the Use of
+              Video-Language Models as Behavior Critics for Catching Undesirable Agent Behaviors</h1>
+            <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://icml.cc/"> ICML 2024
+              </a></h3> -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a target="_blank" href="https://guansuns.github.io/">Lin Guan</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="http://yifanzhou.com/">Yifan Zhou</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://www.linkedin.com/in/denis-liu-0baa10212/">Denis Liu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://yantianzha.github.io/">Yantian Zha</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="http://henibenamor.weebly.com/">Heni Ben Amor</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://rakaposhi.eas.asu.edu/">Subbarao Kambhampati</a><sup>1</sup>
+              </span>
             </div>
-            <div class="row">
-                <div class="col" style="margin-bottom: 8px;">
-                    <h3 class="text-center" style="margin: 0px;font-family: Roboto, sans-serif;color: rgb(255,255,255);margin-top: 5px;"><strong>"Task Success" is not Enough: Investigating the Use of Video-Language Models as Behavior Critics for Catching Undesirable Agent Behaviors</strong><br></h3>
-                </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Arizona State University</span>
+              <span class="author-block"><sup>2</sup>University of Maryland</span>
             </div>
-            <div class="row">
-                <div class="col" style="margin-bottom: 0px;height: 22.5px;">
-                    <p class="text-wrap" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);text-align: center;font-size: 15px;margin-top: 0px;">Lin Guan<sup>* 1</sup>,&nbsp;&nbsp;Yifan Zhou<sup>* 1</sup>,&nbsp;&nbsp;Denis Liu<sup>1</sup>,&nbsp;&nbsp;Yantian Zha<sup>2</sup>,&nbsp;&nbsp;Heni Ben Amor<sup>1</sup>,&nbsp; &nbsp;Subbarao Kambhampati<sup>1</sup><sup></sup><br></p>
-                </div>
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link.
+                <span class="link-block">
+                  <a target="_blank" href="voxposer.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+
+                <!-- Arxiv Link. -->
+                <span class="link-block">
+                  <a target="_blank" href="https://arxiv.org/abs/2402.04210"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file"></i>
+                    </span>
+                    <span>ArXiv</span>
+                  </a>
+                </span>
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a target="_blank" href="https://github.com/GuanSuns/VLMs-Behavior-Critic"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
             </div>
-            <div class="row">
-                <div class="col" style="height: 65px;">
-                    <p class="text-wrap" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);text-align: center;font-size: 13px;margin-bottom: 26px;margin-top: 10px;"><sup>1</sup>School of Computing &amp; AI,&nbsp; Arizona State University<br><sup>2</sup>Department of Computer Science,&nbsp; University of Maryland, College Park<br></p>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser">
+    <div class="container is-fullhd">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="subtitle has-text-centered">
+            <span class="dperact">We </span> leverage <b>chickens</b> and <b>roosters</b> from GPT-4
+            vision-language models<br>to compose Canes Chicken Fingers which are used by motion planners to
+            <b>zero-shot synthesize</b> trajectories for everyday manipulation tasks.
+          </h2>
+          <br>
+          <div class="columns is-vcentered  is-centered">
+            <img src="media/figures/appendix_negative_examples.png" class="interpolation-image" />
+            </br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Large-scale generative models are shown to be useful for sampling meaningful candidate solutions,
+              yet they often overlook task constraints and user preferences.
+              Their full power is better harnessed when the models are coupled with external verifiers and
+              the final solutions are derived iteratively or progressively according to the verification feedback.
+              In the context of embodied AI, verification often solely involves assessing whether goal conditions
+              specified in the instructions have been met. Nonetheless, for these agents to be seamlessly integrated
+              into daily life, it is crucial to account for a broader range of constraints and preferences beyond
+              bare task success (e.g., a robot should avoid pointing the blade at a human when handing a knife to
+              the person). However, given the unbounded scope of robot tasks, it is infeasible to construct scripted
+              verifiers akin to those used for explicit-knowledge tasks like the game of Go and theorem proving.
+              This begs the question: when no sound verifier is available, can we use large vision and language
+              models (VLMs), which are approximately omniscient, as scalable <i>Behavior Critics</i> to catch
+              undesirable robot behaviors in videos? To answer this, we first construct a benchmark that contains
+              diverse cases of goal-reaching yet undesirable robot policies. Then, we comprehensively evaluate
+              VLM critics to gain a deeper understanding of their strengths and failure modes.
+              Based on the evaluation, we provide guidelines on how to effectively utilize VLM critiques and
+              showcase a practical way to integrate the feedback into an iterative process of policy refinement.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <img src="media/figures/positioning.png" class="interpolation-image" />
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
     </div>
 
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 style="margin-top: 15px;font-family: Roboto, sans-serif;font-size: 25px;color: #333;margin-left: 24px;">Resources</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p style="font-family: Roboto, sans-serif;margin-left: 24px;margin-right: 24px;margin-top: 2px;font-size: 14px;color: #333;">
-                        <a href="">Paper</a>
-                        &nbsp; |&nbsp;&nbsp;<a href="https://github.com/GuanSuns/VLMs-Behavior-Critic">Code and Dataset</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Paper video. -->
+    <br>
+    <br>
 
-    <div style="margin-top: 30px;height: 380px;">
-        <div class="container">
-            <div class="row" style="margin-top: 10px;">
-                <div class="col"><img class="center-block" style="height: 350px;" src="assets/img/overview.png"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 style="margin-top: 15px;font-family: Roboto, sans-serif;font-size: 25px;color: #333;margin-left: 24px;">Abstract</h1>
+    <section class="section">
+      <div class="container is-max-widescreen">
+
+        <div class="rows">
+          <h2 class="title is-3">Examples of Success Cases and Failure Cases </h2>
+
+          <p class="content has-text-justified">
+            As the core contribution of this paper, we construct a benchmark which consists of diverse video clips demonstrating 
+            suboptimal yet goal-reaching policies in various household tasks.
+          </p>
+
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+              <div class="tile">
+                <div class="tile is-vertical is-6">
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Pick up a bag of chips</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/1.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/1.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Pour coke into the glass</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/2.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/8.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Move carrot to the plate</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/3.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/2.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Hand scissors to human</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/7.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/5.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Pick up red screwdriver</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/8.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/4.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p style="font-family: Roboto, sans-serif;margin-left: 24px;margin-right: 24px;margin-top: 2px;font-size: 14px;color: #333;">Large-scale generative models are shown to be useful for sampling meaningful candidate solutions, yet they often overlook task constraints and user preferences. Their full power is better harnessed when the models are coupled with external verifiers and the final solutions are derived iteratively or progressively according to the verification feedback. In the context of embodied AI, verification often solely involves assessing whether goal conditions specified in the instructions have been met. Nonetheless, for these agents to be seamlessly integrated into daily life, it is crucial to account for a broader range of constraints and preferences beyond bare task success (e.g., a robot should avoid pointing the blade at a human when handing a knife to the person). However, given the unbounded scope of robot tasks, it is infeasible to construct scripted verifiers akin to those used for explicit-knowledge tasks like the game of Go and theorem proving. This begs the question: when no sound verifier is available, can we use large vision and language models (VLMs), which are approximately omniscient, as scalable Behavior Critics to catch undesirable robot behaviors in videos? To answer this, we first construct a benchmark that contains diverse cases of goal-reaching yet undesirable robot policies. Then, we comprehensively evaluate VLM critics to gain a deeper understanding of their strengths and failure modes. Based on the evaluation, we provide guidelines on how to effectively utilize VLM critiques and showcase a practical way to integrate the feedback into an iterative process of policy refinement.</p>
+                <div class="tile is-vertical is-6">
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Place knife on board</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/4.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/9.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Serve orange juice</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/5.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/6.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Open cabinet door</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/6.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/7.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent box">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Open cabinet door</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/9.gif" alt="hello">
+                      </figure>
+                    </article>
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/3.png" alt="hello" class="resized-image">
+                    </article>
+                  </div>
+                  <div class="tile is-parent">
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-    
-    <div style="height: 50px;background: var(--bs-gray-800);">
-        <div class="container" style="height: 45.5px;">
-            <div class="row" style="height: 45.5px;">
-                <div class="col" style="height: 45.5px;">
-                    <p class="copyright" style="padding-top: 0px;height: 32.5px;text-align: center;color: var(--bs-body-bg);margin-top: 10px;">Yochan Lab © 2024</p>
+          </div>
+
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+              <div class="tile">
+                <div class="tile is-vertical is-1">
                 </div>
+                <div class="tile is-vertical is-4">
+                  <div class="tile is-parent">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Place bowl on burner</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/bad_1.gif" alt="hello">
+                      </figure>
+                    </article>
+                  </div>
+                  <div class="tile is-parent">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Move spoon to bowl</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/bad_2.gif" alt="hello">
+                      </figure>
+                    </article>
+                  </div>
+                  <div class="tile is-parent">
+                    <article class="tile is-child box is-info">
+                      <p class="subtitle"><b>Take scissors out of container</b></p>
+                      <figure class="image is-4by3">
+                        <img src="media/videos/bad_3.gif" alt="hello">
+                      </figure>
+                    </article>
+                  </div>
+                </div>
+                <div class="tile is-vertical is-6">
+                  <div class="tile is-parent">
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/bad_1.png" alt="hello" class="resized-image1">
+                    </article>
+                  </div>
+                  <div class="tile is-parent">
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/bad_2.png" alt="hello" class="resized-image1">
+                    </article>
+                  </div>
+                  <div class="tile is-parent">
+                    <article class="tile is-child is-info centered-image">
+                      <img src="media/figures/bad_3.png" alt="hello" class="resized-image1">
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <div class="tile is-vertical is-1">
+              </div>
             </div>
+          </div>
+
+
         </div>
-    </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    </section>
+
+    <section class=" section">
+      <div class="container is-max-widescreen">
+
+        <div class="rows">
+          <h2 class="title is-3">Understanding Output Patterns of GPT-4V Critic </h2>
+
+          <p class="content has-text-justified">
+            We introduce a set of metrics and a taxonomy for characterizing the strengths and failure modes of VLM critics. 
+            Detailed explanation can be found in the paper. Here are some key observations:
+            <li>Our evaluation indicates that GPT-4V can identify a significant portion of undesirable robot behaviors (with a recall rate of 69%).</li>
+            <li>However, it also generates critiques that contain a considerable amount of hallucinated information (resulting in a precision rate of 62%), mainly due to limited visual-grounding capability.</li>
+            <li>We demonstrate that, in an ideal case, by providing GPT-4V with "perfect" grounding feedback that verifies the occurrences of events mentioned in the critiques, it can "refine" its outputs and achieve a precision rate of over 98% (with a minor impact on the recall).</li>
+            <li>We also assess the feasibility of complementing verbal critiques with preference labels (see Sec. 4.1). Our results show that (a) when contrasting a negative sample with a positive sample, in 95.61% of time, GPT-4V manages to prefer the positive one; (b) when comparing pairs of negative samples or pairs of positive samples, GPT-4V always establishes invalid rankings within the pairs by "hallucinating" that one sample is perfect and one is flawed, as seen in its justifications. The positive aspect is that GPT-4V can accurately select near-optimal behaviors over suboptimal ones even though it tends to establish unnecessary orderings in other cases..</li>
+          </p>
+          <br><br>
+          <div class="columns">
+            <div class="column has-text-centered">
+              <img src="media/figures/result_1.png" alt="recall-precision-acc">
+            </div>
+
+            <div class="column has-text-centered">
+              <img src="media/figures/error-types.png" alt="error-types">
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-widescreen">
+
+        <div class="rows">
+          <h2 class="title is-3">Integrating Critiques into a Closed-loop System</h2>
+
+          <p class="content has-text-justified">
+            While this work does not take a strong stance on how the critiques should be integrated into closed-loop policy-generation systems, we 
+            do present a candidate framework using a real robot in five household scenarios, wherein a Code-as-Policies (CaP) agent iteratively refines the 
+            policy according to VLM critiques on the rollouts. We consider 5 tasks within table-top setups: (a) scissor handover; 
+            (b) lifting an opened bag; (c) bread grasping; (d) knife placing; and (e) spoon picking. The CaP agent manages to eliminate undesirable behaviors
+            according to VLM critiques in 4 of the tasks.
+          </p>
+          <br>
+          <div style="text-align: center;">
+            <img src="media/figures/robot.png" class="interpolation-image" style="width: 80%; height: auto;" />
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- <section class="section" id="BibTeX">
+      <div class="container is-max-widescreen content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{huang2023voxposer,
+      title={VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models},
+      author={Huang, Wenlong and Wang, Chen and Zhang, Ruohan and Li, Yunzhu and Wu, Jiajun and Fei-Fei, Li},
+      journal={arXiv preprint arXiv:2307.05973},
+      year={2023}
+    }</code></pre>
+      </div>
+    </section> -->
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content has-text-centered">
+              <p>
+                Website template borrowed from <a href="https://github.com/voxposer/voxposer.github.io"> VoxPoser</a>,
+                <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a
+                  href="https://peract.github.io/">PerAct</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script async src="//static.getclicky.com/101386582.js"></script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101386582ns.gif" /></p></noscript>
     <script src="https://www.w3counter.com/tracker.js?id=147571"></script>
 
+
+
 </body>
+
 </html>
